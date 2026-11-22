@@ -3,15 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nihal Çelik</title>
+  <title>Nihal Çelik | Günlük Motivasyon &amp; İçsel Notlar</title>
   <style>
     :root {
-      --bg: #F3F3F1;
-      --surface: #FFFFFF;
-      --text: #1F1F1D;
-      --muted: #5E5E58;
+      --bg-main: #F3F3F1;
+      --bg-card: #FFFFFF;
+      --bg-soft: #ECECE8;
+      --text-main: #26282A;
+      --text-muted: #5F6266;
       --gold: #C5A059;
+      --gold-dark: #9A7938;
       --border: #E2E0D8;
+      --shadow-soft: 0 10px 28px rgba(38, 40, 42, 0.05);
     }
 
     * {
@@ -20,21 +23,56 @@
 
     body {
       margin: 0;
-      padding: 32px 16px 64px;
+      padding: 36px 16px 64px;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background-color: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      line-height: 1.65;
     }
 
-    .container {
-      max-width: 720px;
+    .page-wrap {
+      max-width: 920px;
       margin: 0 auto;
     }
 
-    .profile-header {
+    .top-grid {
+      display: grid;
+      grid-template-columns: 290px 1fr;
+      gap: 20px;
+      align-items: start;
+      margin-bottom: 20px;
+    }
+
+    @media (max-width: 780px) {
+      .top-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: var(--shadow-soft);
+      margin-bottom: 20px;
+    }
+
+    .author-card {
       text-align: center;
-      margin-bottom: 28px;
+    }
+
+    .section-tag {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      background: rgba(197, 160, 89, 0.14);
+      padding: 4px 10px;
+      border-radius: 999px;
+      margin-bottom: 8px;
     }
 
     img[src="profil.jpg"] {
@@ -44,23 +82,32 @@
       object-fit: cover;
       object-position: center 8%;
       padding: 5px;
-      background-color: var(--bg);
+      background-color: var(--bg-main);
       border: 2px solid var(--gold);
       box-sizing: border-box;
       display: inline-block;
-    }
-
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 20px;
-      margin-bottom: 20px;
+      margin-top: 6px;
     }
 
     h1 {
-      font-size: 1.5rem;
-      margin: 12px 0 6px;
+      font-size: 1.45rem;
+      margin: 12px 0 4px;
+    }
+
+    .author-role {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--gold-dark);
+      margin-bottom: 10px;
+    }
+
+    .author-edu {
+      font-size: 0.86rem;
+      color: var(--text-main);
+      background: var(--bg-soft);
+      padding: 10px 12px;
+      border-radius: 12px;
+      margin-bottom: 12px;
     }
 
     h2 {
@@ -69,8 +116,39 @@
     }
 
     .muted {
-      color: var(--muted);
+      color: var(--text-muted);
+      font-size: 0.94rem;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    @media (max-width: 780px) {
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    input[type="text"],
+    textarea {
+      width: 100%;
+      padding: 11px 13px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      font-family: inherit;
       font-size: 0.95rem;
+      color: var(--text-main);
+      background: var(--bg-card);
+      margin-bottom: 10px;
+    }
+
+    textarea {
+      min-height: 96px;
+      resize: vertical;
     }
 
     button {
@@ -83,22 +161,35 @@
       cursor: pointer;
     }
 
+    button:hover {
+      background: var(--gold-dark);
+    }
+
     button.secondary {
       background: transparent;
-      color: var(--text);
+      color: var(--text-main);
       border: 1px solid var(--border);
     }
 
-    .step-box {
+    .step-box,
+    .compassion-box {
       padding: 14px;
       border-radius: 12px;
-      background: var(--bg);
+      background: var(--bg-soft);
       margin-bottom: 12px;
     }
 
-    .quote-grid {
-      display: grid;
-      gap: 10px;
+    .compassion-box {
+      border-left: 3px solid var(--gold);
+    }
+
+    .quote-item,
+    .journal-item {
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin-bottom: 10px;
+      background: var(--bg-card);
     }
 
     .quote-item {
@@ -106,9 +197,6 @@
       justify-content: space-between;
       align-items: center;
       gap: 12px;
-      padding: 12px 14px;
-      border: 1px solid var(--border);
-      border-radius: 12px;
     }
 
     .favorites-panel {
@@ -121,13 +209,13 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 14px;
-      padding: 12px 0;
+      gap: 12px;
+      padding: 8px 0;
     }
 
     .breath-circle {
-      width: 110px;
-      height: 110px;
+      width: 106px;
+      height: 106px;
       border-radius: 50%;
       background: rgba(197, 160, 89, 0.18);
       border: 2px solid var(--gold);
@@ -139,7 +227,7 @@
     }
 
     .breath-circle.expand {
-      transform: scale(1.25);
+      transform: scale(1.24);
     }
 
     .feeling-tabs {
@@ -149,64 +237,144 @@
       margin-bottom: 12px;
     }
 
-    .compassion-box {
-      padding: 14px;
-      border-radius: 12px;
-      background: var(--bg);
-      border-left: 3px solid var(--gold);
+    .journal-meta {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 6px;
     }
   </style>
 </head>
 <body>
-  <main class="container">
-    <header class="profile-header">
-      <img src="profil.jpg" alt="Profil Fotoğrafı" />
-      <h1>Nihal Çelik</h1>
-      <p class="muted">Küçük adımlar, sakin anlar ve kendimize alan açtığımız bir köşe.</p>
-    </header>
+  <div class="page-wrap">
+    <div class="top-grid">
+      <!-- Sol: Yazar Hakkında -->
+      <aside class="card author-card">
+        <div class="section-tag">Yazar Hakkında • Sosyal Hizmet</div>
+        <br />
+        <img src="profil.jpg" alt="Nihal ÇELİK" />
+        <h1>Nihal ÇELİK</h1>
+        <div class="author-role">Hazırlayan &amp; Yazar</div>
+        <div class="author-edu">
+          İstanbul Sabahattin Zaim Üniversitesi • Sosyal Hizmet Bölümü 2. Sınıf Öğrencisi
+        </div>
+        <p class="muted">
+          İnsanların duyulmaya, anlaşılmaya ve bazen sadece yargılanmadan içini dökmeye ihtiyaç duyduğuna inanıyorum. Sosyal hizmet eğitimimle birlikte insan odaklı, iyileştirici ve umut veren küçük dokunuşları bu sayfada bir araya getiriyorum.
+        </p>
+      </aside>
 
-    <!-- 1. Bugünün Küçük Adımı -->
-    <section class="card">
-      <h2>Bugünün Küçük Adımı</h2>
-      <div class="step-box" id="dailyStepText">Yükleniyor...</div>
-      <button type="button" onclick="nextStep()">Yeni Adım Göster</button>
-    </section>
+      <!-- Sağ: Günlük Defteri & Kayıtlar -->
+      <section class="card">
+        <h2>Günlük Notlarım</h2>
+        <input type="text" id="journalTitle" placeholder="Bugünün başlığı (isteğe bağlı)..." />
+        <textarea id="journalBody" placeholder="Bugün aklından geçenleri, hissettiklerini veya küçük bir notu buraya yaz..."></textarea>
+        <button type="button" id="gunlukKaydet" onclick="saveJournalEntry()">Notu Kaydet</button>
 
-    <!-- 2. Motivasyon Sözleri & Kalıcı Favoriler -->
-    <section class="card">
-      <h2>Motivasyon Sözleri &amp; Favoriler</h2>
-      <div class="quote-grid" id="quoteList"></div>
-      <div class="favorites-panel">
-        <strong>Favorilerim</strong>
-        <ul id="favoritesList" class="muted"></ul>
-      </div>
-    </section>
+        <div id="kayitlar" style="margin-top: 18px;"></div>
+        <div id="listeAlani"></div>
+      </section>
+    </div>
 
-    <!-- 3. 30 Saniyelik Görsel Nefes Egzersizi -->
-    <section class="card">
-      <h2>30 Saniyelik Nefes Egzersizi</h2>
-      <div class="breath-area">
-        <div class="breath-circle" id="breathCircle">Hazır</div>
-        <div class="muted" id="breathStatus">30 saniye • 4 sn al, 4 sn tut, 4 sn ver</div>
-        <button type="button" id="breathBtn" onclick="startBreathing()">30 Saniye Başlat</button>
-      </div>
-    </section>
+    <div class="two-col">
+      <!-- Bugünün Küçük Adımı -->
+      <section class="card">
+        <h2>Bugünün Küçük Adımı</h2>
+        <div class="step-box" id="dailyStepText">Yükleniyor...</div>
+        <button type="button" onclick="nextStep()">Yeni Adım Göster</button>
+      </section>
 
-    <!-- 4. Her Şey Yolunda Olmak Zorunda Değil -->
-    <section class="card">
-      <h2>Her Şey Yolunda Olmak Zorunda Değil</h2>
-      <div class="feeling-tabs">
-        <button type="button" class="secondary" onclick="showFeeling('yorgun')">Yorgunum</button>
-        <button type="button" class="secondary" onclick="showFeeling('sikismis')">Sıkışmış hissediyorum</button>
-        <button type="button" class="secondary" onclick="showFeeling('belirsiz')">Belirsizlik var</button>
-      </div>
-      <div class="compassion-box" id="compassionMessage">
-        Bugün her şeyi çözmek zorunda değilsin. Küçük bir mola da ilerlemektir.
-      </div>
-    </section>
-  </main>
+      <!-- 30 Saniyelik Nefes Egzersizi -->
+      <section class="card">
+        <h2>30 Saniyelik Nefes Egzersizi</h2>
+        <div class="breath-area">
+          <div class="breath-circle" id="breathCircle">Hazır</div>
+          <div class="muted" id="breathStatus">30 saniye • 4 sn al, 4 sn tut, 4 sn ver</div>
+          <button type="button" id="breathBtn" onclick="startBreathing()">30 Saniye Başlat</button>
+        </div>
+      </section>
+    </div>
+
+    <div class="two-col">
+      <!-- Motivasyon Sözleri & Kalıcı Favoriler -->
+      <section class="card">
+        <h2>Motivasyon Sözleri &amp; Favoriler</h2>
+        <div id="quoteList"></div>
+        <div class="favorites-panel">
+          <strong>Favorilerim</strong>
+          <ul id="favoritesList" class="muted"></ul>
+        </div>
+      </section>
+
+      <!-- Her Şey Yolunda Olmak Zorunda Değil -->
+      <section class="card">
+        <h2>Her Şey Yolunda Olmak Zorunda Değil</h2>
+        <div class="feeling-tabs">
+          <button type="button" class="secondary" onclick="showFeeling('yorgun')">Yorgunum</button>
+          <button type="button" class="secondary" onclick="showFeeling('sikismis')">Sıkışmış hissediyorum</button>
+          <button type="button" class="secondary" onclick="showFeeling('belirsiz')">Belirsizlik var</button>
+        </div>
+        <div class="compassion-box" id="compassionMessage">
+          Bugün her şeyi çözmek zorunda değilsin. Küçük bir mola da ilerlemektir.
+        </div>
+      </section>
+    </div>
+  </div>
 
   <script>
+    const JOURNAL_KEY = "nihal_journal_entries_v1";
+
+    function getJournalEntries() {
+      try {
+        return JSON.parse(localStorage.getItem(JOURNAL_KEY)) || [];
+      } catch (e) {
+        return [];
+      }
+    }
+
+    function renderJournalEntries() {
+      const target = document.getElementById("kayitlar");
+      const entries = getJournalEntries();
+      target.innerHTML = "";
+
+      if (entries.length === 0) {
+        target.innerHTML = '<p class="muted">Henüz günlük notu eklenmedi. İlk notunu yukarıdan kaydedebilirsin.</p>';
+        return;
+      }
+
+      entries.forEach((item) => {
+        const div = document.createElement("div");
+        div.className = "journal-item";
+
+        const meta = document.createElement("div");
+        meta.className = "journal-meta";
+        meta.textContent = item.date + (item.title ? " • " + item.title : "");
+
+        const body = document.createElement("div");
+        body.textContent = item.body;
+
+        div.appendChild(meta);
+        div.appendChild(body);
+        target.appendChild(div);
+      });
+    }
+
+    function saveJournalEntry() {
+      const titleInput = document.getElementById("journalTitle");
+      const bodyInput = document.getElementById("journalBody");
+      const bodyText = bodyInput.value.trim();
+      if (!bodyText) return;
+
+      const entries = getJournalEntries();
+      entries.unshift({
+        title: titleInput.value.trim(),
+        body: bodyText,
+        date: new Date().toLocaleDateString("tr-TR")
+      });
+      localStorage.setItem(JOURNAL_KEY, JSON.stringify(entries));
+      titleInput.value = "";
+      bodyInput.value = "";
+      renderJournalEntries();
+    }
+
     const smallSteps = [
       "Bir bardak su iç ve omuzlarını aşağı bırak.",
       "Bugün yalnızca tek bir küçük görevi tamamla.",
@@ -272,88 +440,3 @@
         btn.onclick = () => toggleFavorite(q);
 
         row.appendChild(text);
-        row.appendChild(btn);
-        container.appendChild(row);
-      });
-    }
-
-    function renderFavorites() {
-      const listEl = document.getElementById("favoritesList");
-      const favs = getFavorites();
-      listEl.innerHTML = "";
-
-      if (favs.length === 0) {
-        const li = document.createElement("li");
-        li.textContent = "Henüz favori söz eklenmedi.";
-        listEl.appendChild(li);
-        return;
-      }
-
-      favs.forEach((item) => {
-        const li = document.createElement("li");
-        li.textContent = item;
-        listEl.appendChild(li);
-      });
-    }
-
-    let breathTimer = null;
-
-    function startBreathing() {
-      if (breathTimer) {
-        clearInterval(breathTimer);
-        breathTimer = null;
-      }
-
-      const circle = document.getElementById("breathCircle");
-      const status = document.getElementById("breathStatus");
-      const btn = document.getElementById("breathBtn");
-      let elapsed = 0;
-      btn.disabled = true;
-
-      function tick() {
-        if (elapsed >= 30) {
-          clearInterval(breathTimer);
-          breathTimer = null;
-          circle.classList.remove("expand");
-          circle.textContent = "Tamam";
-          status.textContent = "30 saniyelik nefes turu tamamlandı.";
-          btn.disabled = false;
-          return;
-        }
-
-        const remaining = 30 - elapsed;
-        const phase = elapsed % 12;
-        if (phase < 4) {
-          circle.classList.add("expand");
-          circle.textContent = "Nefes Al";
-        } else if (phase < 8) {
-          circle.textContent = "Tut";
-        } else {
-          circle.classList.remove("expand");
-          circle.textContent = "Nefes Ver";
-        }
-
-        status.textContent = `Kalan süre: ${remaining} sn`;
-        elapsed += 1;
-      }
-
-      tick();
-      breathTimer = setInterval(tick, 1000);
-    }
-
-    const feelings = {
-      yorgun: "Yorgun hissetmek zayıflık değil; bedeninin ve zihninin dinlenme ihtiyacının işaretidir.",
-      sikismis: "Sıkışmış hissettiğinde tüm resmi değil, yalnızca önündeki tek adımı düşünmek yeterlidir.",
-      belirsiz: "Her şeyin netleşmesini beklemeden de bugün kendine iyi davranabilirsin."
-    };
-
-    function showFeeling(key) {
-      document.getElementById("compassionMessage").textContent = feelings[key];
-    }
-
-    renderStep();
-    renderQuotes();
-    renderFavorites();
-  </script>
-</body>
-</html>
