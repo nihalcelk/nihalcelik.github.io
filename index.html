@@ -3,290 +3,692 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nihal ÇELİK | Günlük Motivasyon &amp; İçsel Notlar</title>
+  <title>Nihal Çelik | Günlük Motivasyon &amp; İçsel Notlar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-main: #F5F3EE;
+      --bg-main: #F3F3F1;
       --bg-card: #FAF9F6;
-      --bg-soft: #EFECE4;
-      --text-main: #26282A;
-      --text-muted: #5F6266;
-      --gold: #B49150;
-      --gold-dark: #9E7B34;
-      --border: #E6E0D4;
-      --shadow-soft: 0 10px 28px rgba(38, 40, 42, 0.05);
+      --bg-soft: #ECECE8;
+      --text-anthracite: #26282A;
+      --text-muted: #55585C;
+      --gold-primary: #B49150;
+      --gold-dark: #8F6F36;
+      --gold-light: #DFCFAF;
+      --gold-tint: rgba(180, 145, 80, 0.10);
+      --shadow-soft: 0 12px 35px rgba(38, 40, 42, 0.05);
     }
 
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
-      margin: 0;
-      padding: 32px 16px 64px;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       background-color: var(--bg-main);
-      color: var(--text-main);
-      line-height: 1.65;
+      color: var(--text-anthracite);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      line-height: 1.7;
+      min-height: 100vh;
     }
 
-    .page-wrap {
-      max-width: 880px;
-      margin: 0 auto;
-    }
-
-    .card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 24px;
-      box-shadow: var(--shadow-soft);
-      margin-bottom: 22px;
-    }
-
-    h2 {
-      margin: 0 0 14px;
-      font-size: 1.2rem;
-    }
-
-    .muted {
-      color: var(--text-muted);
-      font-size: 0.92rem;
-    }
-
-    textarea {
+    /* Üst İnce Gold Şerit */
+    .top-gold-line {
+      height: 4px;
+      background: linear-gradient(90deg, #D8C39A, var(--gold-primary), #8F6F36, var(--gold-primary), #D8C39A);
       width: 100%;
-      min-height: 110px;
-      padding: 12px 14px;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      font-family: inherit;
-      font-size: 0.95rem;
-      color: var(--text-main);
-      background: #FFFFFF;
-      resize: vertical;
+    }
+
+    /* Navigasyon */
+    header {
+      background-color: rgba(243, 243, 241, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--gold-light);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-container {
+      max-width: 1020px;
+      margin: 0 auto;
+      padding: 18px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.55rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: var(--text-anthracite);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background-color: var(--gold-primary);
+      display: inline-block;
+    }
+
+    nav {
+      display: flex;
+      gap: 24px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text-anthracite);
+      font-size: 0.92rem;
+      font-weight: 500;
+      position: relative;
+      padding-bottom: 3px;
+      transition: color 0.25s ease;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1.5px;
+      background-color: var(--gold-primary);
+      transition: width 0.25s ease;
+    }
+
+    nav a:hover {
+      color: var(--gold-dark);
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* Ana Konteyner */
+    .container {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 44px 24px 70px;
+    }
+
+    /* Karşılama Alanı */
+    .hero {
+      text-align: center;
+      margin-bottom: 44px;
+    }
+
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 0.78rem;
+      letter-spacing: 2.2px;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      border: 1px solid var(--gold-light);
+      background-color: var(--bg-card);
+      padding: 6px 16px;
+      border-radius: 999px;
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.1rem, 4vw, 2.9rem);
+      font-weight: 600;
+      color: var(--text-anthracite);
+      line-height: 1.2;
       margin-bottom: 12px;
     }
 
-    button {
-      background: var(--gold-dark);
+    .hero p {
+      max-width: 600px;
+      margin: 0 auto;
+      color: var(--text-muted);
+      font-size: 0.98rem;
+    }
+
+    /* Ortak Zarif Kart Yapısı */
+    .card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--gold-light);
+      border-radius: 18px;
+      padding: 34px 32px;
+      box-shadow: var(--shadow-soft);
+      margin-bottom: 36px;
+      position: relative;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid rgba(180, 145, 80, 0.25);
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.7rem;
+      font-weight: 600;
+      color: var(--text-anthracite);
+    }
+
+    .date-badge {
+      font-size: 0.82rem;
+      color: var(--gold-dark);
+      background-color: var(--gold-tint);
+      padding: 5px 12px;
+      border-radius: 8px;
+      font-weight: 500;
+    }
+
+    /* Günlük Motivasyon Alanı */
+    .motivation-box {
+      background: linear-gradient(145deg, #FFFFFF, #F7F4ED);
+      border-left: 3.5px solid var(--gold-primary);
+      border-radius: 12px;
+      padding: 26px 26px;
+      margin-bottom: 22px;
+    }
+
+    .motivation-tag {
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.4px;
+      color: var(--gold-dark);
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .motivation-text {
+      font-size: 1.12rem;
+      color: var(--text-anthracite);
+      font-weight: 400;
+      line-height: 1.8;
+    }
+
+    .motivation-action {
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px dashed var(--gold-light);
+      font-size: 0.92rem;
+      color: var(--text-muted);
+    }
+
+    .motivation-action strong {
+      color: var(--gold-dark);
+      font-weight: 600;
+    }
+
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold-primary), var(--gold-dark));
       color: #FFFFFF;
       border: none;
+      padding: 12px 24px;
       border-radius: 10px;
-      padding: 10px 18px;
-      font-size: 0.92rem;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 500;
       cursor: pointer;
+      letter-spacing: 0.3px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+      box-shadow: 0 6px 18px rgba(180, 145, 80, 0.28);
     }
 
-    button:hover {
-      background: var(--gold);
+    .btn-gold:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 22px rgba(180, 145, 80, 0.36);
     }
 
-    .journal-item {
-      background: #FFFFFF;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 12px 14px;
-      margin-top: 12px;
-    }
-
-    .journal-date {
-      font-size: 0.82rem;
+    /* İçini Dökme / Günlük Alanı */
+    .journal-intro {
+      font-size: 0.94rem;
       color: var(--text-muted);
-      margin-bottom: 4px;
+      margin-bottom: 18px;
     }
 
-    .breath-box {
+    .mood-selector {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .mood-btn {
+      background-color: var(--bg-main);
+      color: var(--text-anthracite);
+      border: 1px solid var(--gold-light);
+      padding: 7px 14px;
+      border-radius: 999px;
+      font-size: 0.84rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .mood-btn.active,
+    .mood-btn:hover {
+      background-color: var(--gold-primary);
+      color: #FFFFFF;
+      border-color: var(--gold-primary);
+    }
+
+    .journal-textarea {
+      width: 100%;
+      min-height: 145px;
+      padding: 16px 18px;
+      border-radius: 12px;
+      border: 1px solid var(--gold-light);
+      background-color: #FFFFFF;
+      color: var(--text-anthracite);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      resize: vertical;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .journal-textarea:focus {
+      border-color: var(--gold-primary);
+      box-shadow: 0 0 0 3px rgba(180, 145, 80, 0.14);
+    }
+
+    .journal-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .privacy-note {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .saved-entries {
+      margin-top: 28px;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      gap: 12px;
-      padding: 8px 0;
-      text-align: center;
+      gap: 14px;
     }
 
-    .breath-circle {
-      width: 104px;
-      height: 104px;
-      border-radius: 50%;
-      background: rgba(180, 145, 80, 0.16);
-      border: 2px solid var(--gold);
+    .entry-item {
+      background-color: var(--bg-main);
+      border: 1px solid var(--gold-light);
+      border-radius: 12px;
+      padding: 16px 18px;
+    }
+
+    .entry-meta {
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      justify-content: center;
+      font-size: 0.8rem;
+      color: var(--gold-dark);
+      margin-bottom: 8px;
       font-weight: 600;
-      transition: transform 4s ease-in-out;
     }
 
-    .author-wrap {
+    .entry-content {
+      font-size: 0.93rem;
+      color: var(--text-anthracite);
+      white-space: pre-wrap;
+    }
+
+    .delete-entry {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+    .delete-entry:hover {
+      color: #A33A3A;
+    }
+
+    /* Yazar Kartı */
+    .author-card {
       display: flex;
       align-items: center;
-      gap: 20px;
+      gap: 28px;
       flex-wrap: wrap;
     }
 
-    .author-badge {
-      display: inline-block;
-      font-size: 0.78rem;
-      font-weight: 600;
-      color: var(--gold-dark);
-      background: var(--bg-soft);
-      padding: 4px 10px;
-      border-radius: 999px;
-      margin-bottom: 8px;
+    .author-photo-wrap {
+      width: 128px;
+      height: 128px;
+      border-radius: 50%;
+      padding: 4px;
+      background: linear-gradient(135deg, #E2CFA8, var(--gold-primary), #8F6F36);
+      flex-shrink: 0;
+      box-shadow: 0 10px 24px rgba(180, 145, 80, 0.22);
     }
 
-    img[src="profil.jpg"],
-    .profile-photo,
-    .avatar img,
-    header img {
-      width: 92px !important;
-      height: 92px !important;
-      border-radius: 50% !important;
-      object-fit: cover !important;
-      object-position: center 15% !important;
-      padding: 0 !important;
-      box-sizing: border-box !important;
-      border: 2px solid var(--gold) !important;
-      flex-shrink: 0;
+    .author-photo {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+      background-color: var(--bg-main);
+    }
+
+    .author-info {
+      flex: 1;
+      min-width: 240px;
+    }
+
+    .author-label {
+      font-size: 0.78rem;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .author-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.85rem;
+      font-weight: 700;
+      color: var(--text-anthracite);
+      margin-bottom: 4px;
+    }
+
+    .author-role {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--gold-dark);
+      margin-bottom: 12px;
+    }
+
+    .author-bio {
+      font-size: 0.93rem;
+      color: var(--text-anthracite);
+      line-height: 1.75;
+    }
+
+    footer {
+      text-align: center;
+      padding: 28px 20px;
+      border-top: 1px solid var(--gold-light);
+      background-color: var(--bg-card);
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    footer span {
+      color: var(--gold-dark);
+      font-weight: 600;
+    }
+
+    @media (max-width: 640px) {
+      .card {
+        padding: 24px 20px;
+      }
+      .author-card {
+        justify-content: center;
+        text-align: center;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="page-wrap">
-    <section class="card">
-      <h2>İçini Dök &amp; Günlük Notlar</h2>
-      <textarea id="gunlukMetni" placeholder="Bugün aklından geçenleri buraya yaz..."></textarea>
-      <button type="button" id="gunlukKaydet" onclick="notKaydet()">Bugünü Kaydet</button>
-      <div id="kayitlar"></div>
-      <div id="listeAlani"></div>
+
+  <div class="top-gold-line"></div>
+
+  <header>
+    <div class="nav-container">
+      <a href="#" class="brand">
+        <span class="brand-dot"></span>
+        Nihal Çelik
+      </a>
+      <nav>
+        <a href="#motivasyon">Günlük Motivasyon</a>
+        <a href="#gunluk">İçini Dök</a>
+        <a href="#yazar">Yazar</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section class="hero">
+      <span class="hero-eyebrow">Kendine Bir Mola Alanı</span>
+      <h1>Bugün Kendine İyi Gel</h1>
+      <p>Günün telaşı içinde durup nefes alabileceğin, günlük motivasyonunu bulabileceğin ve içinden geçenleri özgürce yazabileceğin sade bir alan.</p>
     </section>
 
-    <section class="card">
-      <h2>30 Saniyelik Nefes Egzersizi</h2>
-      <div class="breath-box">
-        <div class="breath-circle" id="nefesDaire">Hazır</div>
-        <div class="muted" id="nefesDurum">4 sn nefes al • 4 sn tut • 4 sn nefes ver</div>
-        <button type="button" id="nefesBaslatBtn" onclick="nefesEgzersiziBaslat()">30 Saniye Başlat</button>
+    <!-- 1. GÜNLÜK MOTİVASYON ALANI -->
+    <section id="motivasyon" class="card">
+      <div class="section-header">
+        <h2 class="section-title">Günün Motivasyonu</h2>
+        <span class="date-badge" id="todayDate"></span>
       </div>
+
+      <div class="motivation-box">
+        <span class="motivation-tag" id="motivationTheme">Bugünün Odağı</span>
+        <p class="motivation-text" id="motivationText"></p>
+        <p class="motivation-action"><strong>Bugün için küçük bir adım:</strong> <span id="motivationStep"></span></p>
+      </div>
+
+      <button class="btn-gold" onclick="yeniMotivasyonGetir()">Yeni Bir Motivasyon Al</button>
     </section>
 
-    <section class="card" id="yazar">
-      <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 14px; flex-wrap: wrap;">
-        <h2 style="margin: 0;">Yazar Hakkında</h2>
-        <span class="author-badge" style="margin: 0;">Sosyal Hizmet</span>
+    <!-- 2. GÜNLÜK / İÇİNİ DÖKME ALANI -->
+    <section id="gunluk" class="card">
+      <div class="section-header">
+        <h2 class="section-title">İçini Dök &amp; Günlüğün</h2>
+        <span class="date-badge">Kişisel Alanın</span>
       </div>
-      <div class="author-wrap">
-        <img src="profil.jpg" alt="Nihal ÇELİK" />
-        <div style="flex: 1; min-width: 240px;">
-          <div class="muted" style="font-weight: 600; letter-spacing: 0.04em; font-size: 0.78rem;">HAZIRLAYAN &amp; YAZAR</div>
-          <h3 style="margin: 2px 0 6px; font-size: 1.35rem;">Nihal ÇELİK</h3>
-          <div style="color: var(--gold-dark); font-size: 0.92rem; font-weight: 500; margin-bottom: 8px;">
-            İstanbul Sabahattin Zaim Üniversitesi • Sosyal Hizmet Bölümü 2. Sınıf Öğrencisi
-          </div>
-          <p class="muted" style="margin: 0;">
+
+      <p class="journal-intro">
+        Bugün omuzlarında ne taşıyorsun, seni ne yordu ya da neye şükrediyorsun? Buraya kimseye açıklama yapmak zorunda olmadan içinden geçenleri bırakabilirsin.
+      </p>
+
+      <div class="mood-selector" id="moodSelector">
+        <button type="button" class="mood-btn active" data-mood="Sakin">Sakin</button>
+        <button type="button" class="mood-btn" data-mood="Umutlu">Umutlu</button>
+        <button type="button" class="mood-btn" data-mood="Yorgun">Yorgun</button>
+        <button type="button" class="mood-btn" data-mood="Düşünceli">Düşünceli</button>
+        <button type="button" class="mood-btn" data-mood="Kaygılı">Kaygılı</button>
+        <button type="button" class="mood-btn" data-mood="Huzurlu">Huzurlu</button>
+      </div>
+
+      <textarea id="journalInput" class="journal-textarea" placeholder="Bugün içimden geçenler..."></textarea>
+
+      <div class="journal-controls">
+        <span class="privacy-note">Notların yalnızca senin cihazında (tarayıcında) saklanır; dışarıya gönderilmez.</span>
+        <button type="button" class="btn-gold" onclick="gunlukKaydet()">Bugünü Kaydet</button>
+      </div>
+
+      <div class="saved-entries" id="savedEntries"></div>
+    </section>
+
+    <!-- 3. YAZAR ALANI -->
+    <section id="yazar" class="card">
+      <div class="section-header">
+        <h2 class="section-title">Yazar Hakkında</h2>
+        <span class="date-badge">Sosyal Hizmet</span>
+      </div>
+
+      <div class="author-card">
+        <div class="author-photo-wrap">
+          <img src="profil.jpg" alt="Nihal ÇELİK" class="author-photo" />
+        </div>
+        <div class="author-info">
+          <div class="author-label">Hazırlayan &amp; Yazar</div>
+          <h3 class="author-name">Nihal ÇELİK</h3>
+          <div class="author-role">İstanbul Sabahattin Zaim Üniversitesi • Sosyal Hizmet Bölümü 2. Sınıf Öğrencisi</div>
+          <p class="author-bio">
             İnsanların duyulmaya, anlaşılmaya ve bazen sadece yargılanmadan içini dökmeye ihtiyaç duyduğuna inanıyorum. Sosyal hizmet eğitimimle birlikte insan odaklı, iyileştirici ve umut veren küçük dokunuşları bu sayfada bir araya getiriyorum.
           </p>
         </div>
       </div>
     </section>
-  </div>
+
+  </main>
+
+  <footer>
+    © 2026 <span>Nihal ÇELİK</span> • İstanbul Sabahattin Zaim Üniversitesi Sosyal Hizmet Bölümü
+  </footer>
 
   <script>
-    const KEY = "nihal_gunluk_kayitlari";
+    const bugun = new Date();
+    const tarihSecenekleri = { day: 'numeric', month: 'long', year: 'numeric', weekday: 'long' };
+    document.getElementById('todayDate').textContent = bugun.toLocaleDateString('tr-TR', tarihSecenekleri);
 
-    function kayitlariAl() {
-      try {
-        return JSON.parse(localStorage.getItem(KEY)) || [];
-      } catch (e) {
-        return [];
+    const motivasyonlar = [
+      {
+        tema: "Kendine Şefkat",
+        mesaj: "Her şeyi aynı gün çözmek zorunda değilsin. Bugün sadece elinden gelen kadarını yapmak ve dinlenmeye izin vermek de ilerlemenin bir parçasıdır.",
+        adim: "5 dakika ekranlardan uzaklaş ve derin bir nefes alıp omuzlarını gevşet."
+      },
+      {
+        tema: "Küçük Başlangıçlar",
+        mesaj: "Gözünde büyüyen işler çoğu zaman tek seferde bitirilmesi gerekmediği için ağırdır. Bugün sadece ilk 10 dakikalık adımı atman yeterli.",
+        adim: "Ertelediğin tek bir işi seç ve sadece ilk küçük parçasını tamamla."
+      },
+      {
+        tema: "Duygularına Alan Açmak",
+        mesaj: "Bugün kendini enerjik hissetmiyorsan bu zayıflık değil, insani bir durumdur. Duygularını bastırmak yerine onlara nazikçe yer aç.",
+        adim: "Aşağıdaki günlük alanına şu an hissettiğin tek bir duyguyu dürüstçe yaz."
+      },
+      {
+        tema: "Kendi Hızın",
+        mesaj: "Başkalarının temposu senin ölçün değil. Kendi yolunda, kendi ritminle attığın her adım seni olman gereken yere yaklaştırıyor.",
+        adim: "Bugün kendini başkalarıyla kıyasladığın bir düşünceyi fark et ve nazikçe bırak."
+      },
+      {
+        tema: "Bugünün Değeri",
+        mesaj: "Dünün keşkeleri ya da yarının belirsizlikleri yerine şu an elinde olan tek zaman dilimine odaklan: bugün hâlâ yeni bir sayfa açabilirsin.",
+        adim: "Bugün seni gülümseten veya iyi hissettiren küçücük bir anı not et."
+      },
+      {
+        tema: "İçsel Dayanıklılık",
+        mesaj: "Daha önce geçmez sandığın pek çok zorlu günün içinden geçip bugüne geldin. İçindeki o sessiz güç hâlâ seninle.",
+        adim: "Kendine bugün teşekkür etmek istediğin bir özelliğini hatırlat."
+      },
+      {
+        tema: "Sınır Koyabilmek",
+        mesaj: "Herkese yetişmeye çalışırken kendini en sona bırakma. Bugün kendi enerjini korumak için hayır diyebilmek en sağlıklı tercih olabilir.",
+        adim: "Bugün sadece kendin için ayıracağın 20 dakikalık bir zaman dilimi belirle."
       }
+    ];
+
+    let aktifIndex = bugun.getDate() % motivasyonlar.length;
+
+    function motivasyonuGoster(index) {
+      const secilen = motivasyonlar[index];
+      document.getElementById('motivationTheme').textContent = secilen.tema;
+      document.getElementById('motivationText').textContent = secilen.mesaj;
+      document.getElementById('motivationStep').textContent = secilen.adim;
     }
 
-    function kayitlariGoster() {
-      const alan = document.getElementById("kayitlar");
-      const liste = kayitlariAl();
-      alan.innerHTML = "";
+    function yeniMotivasyonGetir() {
+      let yeniIndex;
+      do {
+        yeniIndex = Math.floor(Math.random() * motivasyonlar.length);
+      } while (yeniIndex === aktifIndex && motivasyonlar.length > 1);
+      aktifIndex = yeniIndex;
+      motivasyonuGoster(aktifIndex);
+    }
 
-      liste.forEach((item) => {
-        const kutu = document.createElement("div");
-        kutu.className = "journal-item";
+    motivasyonuGoster(aktifIndex);
 
-        const tarih = document.createElement("div");
-        tarih.className = "journal-date";
-        tarih.textContent = item.tarih;
+    let seciliDuygu = "Sakin";
+    const moodButtons = document.querySelectorAll('.mood-btn');
+    moodButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        moodButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        seciliDuygu = btn.getAttribute('data-mood');
+      });
+    });
 
-        const metin = document.createElement("div");
-        metin.textContent = item.metin;
+    function gunlukleriYukle() {
+      const kayitlar = JSON.parse(localStorage.getItem('nihal_gunluk_kayitlari') || '[]');
+      const listeAlani = document.getElementById('savedEntries');
+      listeAlani.innerHTML = '';
 
-        kutu.appendChild(tarih);
-        kutu.appendChild(metin);
-        alan.appendChild(kutu);
+      kayitlar.forEach((kayit, idx) => {
+        const div = document.createElement('div');
+        div.className = 'entry-item';
+        div.innerHTML = `
+          <div class="entry-meta">
+            <span>${kayit.tarih} • Ruh Hali: ${kayit.duygu}</span>
+            <button class="delete-entry" onclick="gunlukSil(${idx})">Sil</button>
+          </div>
+          <div class="entry-content"></div>
+        `;
+        div.querySelector('.entry-content').textContent = kayit.metin;
+        listeAlani.appendChild(div);
       });
     }
 
-    function notKaydet() {
-      const textarea = document.getElementById("gunlukMetni");
-      const deger = textarea.value.trim();
-      if (!deger) return;
+    function gunlukKaydet() {
+      const input = document.getElementById('journalInput');
+      const metin = input.value.trim();
+      if (!metin) {
+        alert('Kaydetmeden önce birkaç cümle yazabilirsin.');
+        return;
+      }
 
-      const liste = kayitlariAl();
-      liste.unshift({
-        tarih: new Date().toLocaleString("tr-TR"),
-        metin: deger
+      const kayitlar = JSON.parse(localStorage.getItem('nihal_gunluk_kayitlari') || '[]');
+      const simdi = new Date().toLocaleDateString('tr-TR', {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
       });
-      localStorage.setItem(KEY, JSON.stringify(liste));
-      textarea.value = "";
-      kayitlariGoster();
+
+      kayitlar.unshift({
+        tarih: simdi,
+        duygu: seciliDuygu,
+        metin: metin
+      });
+
+      localStorage.setItem('nihal_gunluk_kayitlari', JSON.stringify(kayitlar));
+      input.value = '';
+      gunlukleriYukle();
     }
 
-    let nefesSayaci = null;
-
-    function nefesEgzersiziBaslat() {
-      if (nefesSayaci) {
-        clearInterval(nefesSayaci);
-        nefesSayaci = null;
-      }
-
-      const daire = document.getElementById("nefesDaire");
-      const durum = document.getElementById("nefesDurum");
-      const buton = document.getElementById("nefesBaslatBtn");
-      let gecenSure = 0;
-      buton.disabled = true;
-
-      function adim() {
-        if (gecenSure >= 30) {
-          clearInterval(nefesSayaci);
-          nefesSayaci = null;
-          daire.style.transform = "scale(1)";
-          daire.textContent = "Tamam";
-          durum.textContent = "30 saniyelik nefes egzersizi tamamlandı.";
-          buton.disabled = false;
-          return;
-        }
-
-        const kalan = 30 - gecenSure;
-        const faz = gecenSure % 12;
-
-        if (faz < 4) {
-          daire.style.transform = "scale(1.25)";
-          daire.textContent = "Nefes Al";
-        } else if (faz < 8) {
-          daire.textContent = "Tut";
-        } else {
-          daire.style.transform = "scale(1)";
-          daire.textContent = "Nefes Ver";
-        }
-
-        durum.textContent = `Kalan süre: ${kalan} sn`;
-        gecenSure += 1;
-      }
-
-      adim();
-      nefesSayaci = setInterval(adim, 1000);
+    function gunlukSil(index) {
+      const kayitlar = JSON.parse(localStorage.getItem('nihal_gunluk_kayitlari') || '[]');
+      kayitlar.splice(index, 1);
+      localStorage.setItem('nihal_gunluk_kayitlari', JSON.stringify(kayitlar));
+      gunlukleriYukle();
     }
 
-    kayitlariGoster();
+    gunlukleriYukle();
   </script>
 </body>
 </html>
