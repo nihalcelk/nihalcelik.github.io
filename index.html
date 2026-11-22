@@ -3,692 +3,357 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nihal Çelik | Günlük Motivasyon &amp; İçsel Notlar</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <title>Nihal Çelik</title>
   <style>
     :root {
-      --bg-main: #F3F3F1;
-      --bg-card: #FAF9F6;
-      --bg-soft: #ECECE8;
-      --text-anthracite: #26282A;
-      --text-muted: #55585C;
-      --gold-primary: #B49150;
-      --gold-dark: #8F6F36;
-      --gold-light: #DFCFAF;
-      --gold-tint: rgba(180, 145, 80, 0.10);
-      --shadow-soft: 0 12px 35px rgba(38, 40, 42, 0.05);
+      --bg: #F3F3F1;
+      --surface: #FFFFFF;
+      --text: #1F1F1D;
+      --muted: #5E5E58;
+      --gold: #C5A059;
+      --border: #E2E0D8;
     }
 
     * {
       box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
     }
 
     body {
-      background-color: var(--bg-main);
-      color: var(--text-anthracite);
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      line-height: 1.7;
-      min-height: 100vh;
+      margin: 0;
+      padding: 32px 16px 64px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
     }
 
-    /* Üst İnce Gold Şerit */
-    .top-gold-line {
-      height: 4px;
-      background: linear-gradient(90deg, #D8C39A, var(--gold-primary), #8F6F36, var(--gold-primary), #D8C39A);
-      width: 100%;
-    }
-
-    /* Navigasyon */
-    header {
-      background-color: rgba(243, 243, 241, 0.92);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid var(--gold-light);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-
-    .nav-container {
-      max-width: 1020px;
-      margin: 0 auto;
-      padding: 18px 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .brand {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.55rem;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      color: var(--text-anthracite);
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .brand-dot {
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      background-color: var(--gold-primary);
-      display: inline-block;
-    }
-
-    nav {
-      display: flex;
-      gap: 24px;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: var(--text-anthracite);
-      font-size: 0.92rem;
-      font-weight: 500;
-      position: relative;
-      padding-bottom: 3px;
-      transition: color 0.25s ease;
-    }
-
-    nav a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 0;
-      height: 1.5px;
-      background-color: var(--gold-primary);
-      transition: width 0.25s ease;
-    }
-
-    nav a:hover {
-      color: var(--gold-dark);
-    }
-
-    nav a:hover::after {
-      width: 100%;
-    }
-
-    /* Ana Konteyner */
     .container {
-      max-width: 920px;
+      max-width: 720px;
       margin: 0 auto;
-      padding: 44px 24px 70px;
     }
 
-    /* Karşılama Alanı */
-    .hero {
+    .profile-header {
       text-align: center;
-      margin-bottom: 44px;
+      margin-bottom: 28px;
     }
 
-    .hero-eyebrow {
-      display: inline-block;
-      font-size: 0.78rem;
-      letter-spacing: 2.2px;
-      text-transform: uppercase;
-      color: var(--gold-dark);
-      border: 1px solid var(--gold-light);
-      background-color: var(--bg-card);
-      padding: 6px 16px;
-      border-radius: 999px;
-      margin-bottom: 16px;
-      font-weight: 600;
-    }
-
-    .hero h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.1rem, 4vw, 2.9rem);
-      font-weight: 600;
-      color: var(--text-anthracite);
-      line-height: 1.2;
-      margin-bottom: 12px;
-    }
-
-    .hero p {
-      max-width: 600px;
-      margin: 0 auto;
-      color: var(--text-muted);
-      font-size: 0.98rem;
-    }
-
-    /* Ortak Zarif Kart Yapısı */
-    .card {
-      background-color: var(--bg-card);
-      border: 1px solid var(--gold-light);
-      border-radius: 18px;
-      padding: 34px 32px;
-      box-shadow: var(--shadow-soft);
-      margin-bottom: 36px;
-      position: relative;
-    }
-
-    .section-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 20px;
-      padding-bottom: 14px;
-      border-bottom: 1px solid rgba(180, 145, 80, 0.25);
-    }
-
-    .section-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.7rem;
-      font-weight: 600;
-      color: var(--text-anthracite);
-    }
-
-    .date-badge {
-      font-size: 0.82rem;
-      color: var(--gold-dark);
-      background-color: var(--gold-tint);
-      padding: 5px 12px;
-      border-radius: 8px;
-      font-weight: 500;
-    }
-
-    /* Günlük Motivasyon Alanı */
-    .motivation-box {
-      background: linear-gradient(145deg, #FFFFFF, #F7F4ED);
-      border-left: 3.5px solid var(--gold-primary);
-      border-radius: 12px;
-      padding: 26px 26px;
-      margin-bottom: 22px;
-    }
-
-    .motivation-tag {
-      font-size: 0.78rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1.4px;
-      color: var(--gold-dark);
-      margin-bottom: 8px;
-      display: block;
-    }
-
-    .motivation-text {
-      font-size: 1.12rem;
-      color: var(--text-anthracite);
-      font-weight: 400;
-      line-height: 1.8;
-    }
-
-    .motivation-action {
-      margin-top: 14px;
-      padding-top: 12px;
-      border-top: 1px dashed var(--gold-light);
-      font-size: 0.92rem;
-      color: var(--text-muted);
-    }
-
-    .motivation-action strong {
-      color: var(--gold-dark);
-      font-weight: 600;
-    }
-
-    .btn-gold {
-      background: linear-gradient(135deg, var(--gold-primary), var(--gold-dark));
-      color: #FFFFFF;
-      border: none;
-      padding: 12px 24px;
-      border-radius: 10px;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 0.9rem;
-      font-weight: 500;
-      cursor: pointer;
-      letter-spacing: 0.3px;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
-      box-shadow: 0 6px 18px rgba(180, 145, 80, 0.28);
-    }
-
-    .btn-gold:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 8px 22px rgba(180, 145, 80, 0.36);
-    }
-
-    /* İçini Dökme / Günlük Alanı */
-    .journal-intro {
-      font-size: 0.94rem;
-      color: var(--text-muted);
-      margin-bottom: 18px;
-    }
-
-    .mood-selector {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 18px;
-    }
-
-    .mood-btn {
-      background-color: var(--bg-main);
-      color: var(--text-anthracite);
-      border: 1px solid var(--gold-light);
-      padding: 7px 14px;
-      border-radius: 999px;
-      font-size: 0.84rem;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-    }
-
-    .mood-btn.active,
-    .mood-btn:hover {
-      background-color: var(--gold-primary);
-      color: #FFFFFF;
-      border-color: var(--gold-primary);
-    }
-
-    .journal-textarea {
-      width: 100%;
-      min-height: 145px;
-      padding: 16px 18px;
-      border-radius: 12px;
-      border: 1px solid var(--gold-light);
-      background-color: #FFFFFF;
-      color: var(--text-anthracite);
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 0.95rem;
-      line-height: 1.7;
-      resize: vertical;
-      outline: none;
-      transition: border-color 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .journal-textarea:focus {
-      border-color: var(--gold-primary);
-      box-shadow: 0 0 0 3px rgba(180, 145, 80, 0.14);
-    }
-
-    .journal-controls {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 14px;
-    }
-
-    .privacy-note {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
-
-    .saved-entries {
-      margin-top: 28px;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    .entry-item {
-      background-color: var(--bg-main);
-      border: 1px solid var(--gold-light);
-      border-radius: 12px;
-      padding: 16px 18px;
-    }
-
-    .entry-meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.8rem;
-      color: var(--gold-dark);
-      margin-bottom: 8px;
-      font-weight: 600;
-    }
-
-    .entry-content {
-      font-size: 0.93rem;
-      color: var(--text-anthracite);
-      white-space: pre-wrap;
-    }
-
-    .delete-entry {
-      background: none;
-      border: none;
-      color: var(--text-muted);
-      font-size: 0.78rem;
-      cursor: pointer;
-      text-decoration: underline;
-    }
-
-    .delete-entry:hover {
-      color: #A33A3A;
-    }
-
-    /* Yazar Kartı */
-    .author-card {
-      display: flex;
-      align-items: center;
-      gap: 28px;
-      flex-wrap: wrap;
-    }
-
-    .author-photo-wrap {
-      width: 128px;
-      height: 128px;
-      border-radius: 50%;
-      padding: 4px;
-      background: linear-gradient(135deg, #E2CFA8, var(--gold-primary), #8F6F36);
-      flex-shrink: 0;
-      box-shadow: 0 10px 24px rgba(180, 145, 80, 0.22);
-    }
-
-    .author-photo {
-      width: 100%;
-      height: 100%;
+    img[src="profil.jpg"] {
+      width: 92px;
+      height: 92px;
       border-radius: 50%;
       object-fit: cover;
-      object-position: top center;
-      display: block;
-      background-color: var(--bg-main);
+      object-position: center 8%;
+      padding: 5px;
+      background-color: var(--bg);
+      border: 2px solid var(--gold);
+      box-sizing: border-box;
+      display: inline-block;
     }
 
-    .author-info {
-      flex: 1;
-      min-width: 240px;
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 20px;
     }
 
-    .author-label {
-      font-size: 0.78rem;
-      letter-spacing: 1.8px;
-      text-transform: uppercase;
-      color: var(--gold-dark);
-      font-weight: 600;
-      margin-bottom: 4px;
+    h1 {
+      font-size: 1.5rem;
+      margin: 12px 0 6px;
     }
 
-    .author-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.85rem;
-      font-weight: 700;
-      color: var(--text-anthracite);
-      margin-bottom: 4px;
+    h2 {
+      font-size: 1.15rem;
+      margin: 0 0 12px;
     }
 
-    .author-role {
+    .muted {
+      color: var(--muted);
       font-size: 0.95rem;
-      font-weight: 500;
-      color: var(--gold-dark);
+    }
+
+    button {
+      background: var(--gold);
+      color: #FFFFFF;
+      border: none;
+      border-radius: 10px;
+      padding: 9px 14px;
+      font-size: 0.92rem;
+      cursor: pointer;
+    }
+
+    button.secondary {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .step-box {
+      padding: 14px;
+      border-radius: 12px;
+      background: var(--bg);
       margin-bottom: 12px;
     }
 
-    .author-bio {
-      font-size: 0.93rem;
-      color: var(--text-anthracite);
-      line-height: 1.75;
+    .quote-grid {
+      display: grid;
+      gap: 10px;
     }
 
-    footer {
-      text-align: center;
-      padding: 28px 20px;
-      border-top: 1px solid var(--gold-light);
-      background-color: var(--bg-card);
-      color: var(--text-muted);
-      font-size: 0.85rem;
+    .quote-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
     }
 
-    footer span {
-      color: var(--gold-dark);
+    .favorites-panel {
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+    }
+
+    .breath-area {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      padding: 12px 0;
+    }
+
+    .breath-circle {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background: rgba(197, 160, 89, 0.18);
+      border: 2px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-weight: 600;
+      transition: transform 4s ease-in-out;
     }
 
-    @media (max-width: 640px) {
-      .card {
-        padding: 24px 20px;
-      }
-      .author-card {
-        justify-content: center;
-        text-align: center;
-      }
+    .breath-circle.expand {
+      transform: scale(1.25);
+    }
+
+    .feeling-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .compassion-box {
+      padding: 14px;
+      border-radius: 12px;
+      background: var(--bg);
+      border-left: 3px solid var(--gold);
     }
   </style>
 </head>
 <body>
-
-  <div class="top-gold-line"></div>
-
-  <header>
-    <div class="nav-container">
-      <a href="#" class="brand">
-        <span class="brand-dot"></span>
-        Nihal Çelik
-      </a>
-      <nav>
-        <a href="#motivasyon">Günlük Motivasyon</a>
-        <a href="#gunluk">İçini Dök</a>
-        <a href="#yazar">Yazar</a>
-      </nav>
-    </div>
-  </header>
-
   <main class="container">
+    <header class="profile-header">
+      <img src="profil.jpg" alt="Profil Fotoğrafı" />
+      <h1>Nihal Çelik</h1>
+      <p class="muted">Küçük adımlar, sakin anlar ve kendimize alan açtığımız bir köşe.</p>
+    </header>
 
-    <section class="hero">
-      <span class="hero-eyebrow">Kendine Bir Mola Alanı</span>
-      <h1>Bugün Kendine İyi Gel</h1>
-      <p>Günün telaşı içinde durup nefes alabileceğin, günlük motivasyonunu bulabileceğin ve içinden geçenleri özgürce yazabileceğin sade bir alan.</p>
+    <!-- 1. Bugünün Küçük Adımı -->
+    <section class="card">
+      <h2>Bugünün Küçük Adımı</h2>
+      <div class="step-box" id="dailyStepText">Yükleniyor...</div>
+      <button type="button" onclick="nextStep()">Yeni Adım Göster</button>
     </section>
 
-    <!-- 1. GÜNLÜK MOTİVASYON ALANI -->
-    <section id="motivasyon" class="card">
-      <div class="section-header">
-        <h2 class="section-title">Günün Motivasyonu</h2>
-        <span class="date-badge" id="todayDate"></span>
-      </div>
-
-      <div class="motivation-box">
-        <span class="motivation-tag" id="motivationTheme">Bugünün Odağı</span>
-        <p class="motivation-text" id="motivationText"></p>
-        <p class="motivation-action"><strong>Bugün için küçük bir adım:</strong> <span id="motivationStep"></span></p>
-      </div>
-
-      <button class="btn-gold" onclick="yeniMotivasyonGetir()">Yeni Bir Motivasyon Al</button>
-    </section>
-
-    <!-- 2. GÜNLÜK / İÇİNİ DÖKME ALANI -->
-    <section id="gunluk" class="card">
-      <div class="section-header">
-        <h2 class="section-title">İçini Dök &amp; Günlüğün</h2>
-        <span class="date-badge">Kişisel Alanın</span>
-      </div>
-
-      <p class="journal-intro">
-        Bugün omuzlarında ne taşıyorsun, seni ne yordu ya da neye şükrediyorsun? Buraya kimseye açıklama yapmak zorunda olmadan içinden geçenleri bırakabilirsin.
-      </p>
-
-      <div class="mood-selector" id="moodSelector">
-        <button type="button" class="mood-btn active" data-mood="Sakin">Sakin</button>
-        <button type="button" class="mood-btn" data-mood="Umutlu">Umutlu</button>
-        <button type="button" class="mood-btn" data-mood="Yorgun">Yorgun</button>
-        <button type="button" class="mood-btn" data-mood="Düşünceli">Düşünceli</button>
-        <button type="button" class="mood-btn" data-mood="Kaygılı">Kaygılı</button>
-        <button type="button" class="mood-btn" data-mood="Huzurlu">Huzurlu</button>
-      </div>
-
-      <textarea id="journalInput" class="journal-textarea" placeholder="Bugün içimden geçenler..."></textarea>
-
-      <div class="journal-controls">
-        <span class="privacy-note">Notların yalnızca senin cihazında (tarayıcında) saklanır; dışarıya gönderilmez.</span>
-        <button type="button" class="btn-gold" onclick="gunlukKaydet()">Bugünü Kaydet</button>
-      </div>
-
-      <div class="saved-entries" id="savedEntries"></div>
-    </section>
-
-    <!-- 3. YAZAR ALANI -->
-    <section id="yazar" class="card">
-      <div class="section-header">
-        <h2 class="section-title">Yazar Hakkında</h2>
-        <span class="date-badge">Sosyal Hizmet</span>
-      </div>
-
-      <div class="author-card">
-        <div class="author-photo-wrap">
-          <img src="profil.jpg" alt="Nihal ÇELİK" class="author-photo" />
-        </div>
-        <div class="author-info">
-          <div class="author-label">Hazırlayan &amp; Yazar</div>
-          <h3 class="author-name">Nihal ÇELİK</h3>
-          <div class="author-role">İstanbul Sabahattin Zaim Üniversitesi • Sosyal Hizmet Bölümü 2. Sınıf Öğrencisi</div>
-          <p class="author-bio">
-            İnsanların duyulmaya, anlaşılmaya ve bazen sadece yargılanmadan içini dökmeye ihtiyaç duyduğuna inanıyorum. Sosyal hizmet eğitimimle birlikte insan odaklı, iyileştirici ve umut veren küçük dokunuşları bu sayfada bir araya getiriyorum.
-          </p>
-        </div>
+    <!-- 2. Motivasyon Sözleri & Kalıcı Favoriler -->
+    <section class="card">
+      <h2>Motivasyon Sözleri &amp; Favoriler</h2>
+      <div class="quote-grid" id="quoteList"></div>
+      <div class="favorites-panel">
+        <strong>Favorilerim</strong>
+        <ul id="favoritesList" class="muted"></ul>
       </div>
     </section>
 
+    <!-- 3. 30 Saniyelik Görsel Nefes Egzersizi -->
+    <section class="card">
+      <h2>30 Saniyelik Nefes Egzersizi</h2>
+      <div class="breath-area">
+        <div class="breath-circle" id="breathCircle">Hazır</div>
+        <div class="muted" id="breathStatus">30 saniye • 4 sn al, 4 sn tut, 4 sn ver</div>
+        <button type="button" id="breathBtn" onclick="startBreathing()">30 Saniye Başlat</button>
+      </div>
+    </section>
+
+    <!-- 4. Her Şey Yolunda Olmak Zorunda Değil -->
+    <section class="card">
+      <h2>Her Şey Yolunda Olmak Zorunda Değil</h2>
+      <div class="feeling-tabs">
+        <button type="button" class="secondary" onclick="showFeeling('yorgun')">Yorgunum</button>
+        <button type="button" class="secondary" onclick="showFeeling('sikismis')">Sıkışmış hissediyorum</button>
+        <button type="button" class="secondary" onclick="showFeeling('belirsiz')">Belirsizlik var</button>
+      </div>
+      <div class="compassion-box" id="compassionMessage">
+        Bugün her şeyi çözmek zorunda değilsin. Küçük bir mola da ilerlemektir.
+      </div>
+    </section>
   </main>
 
-  <footer>
-    © 2026 <span>Nihal ÇELİK</span> • İstanbul Sabahattin Zaim Üniversitesi Sosyal Hizmet Bölümü
-  </footer>
-
   <script>
-    const bugun = new Date();
-    const tarihSecenekleri = { day: 'numeric', month: 'long', year: 'numeric', weekday: 'long' };
-    document.getElementById('todayDate').textContent = bugun.toLocaleDateString('tr-TR', tarihSecenekleri);
+    const smallSteps = [
+      "Bir bardak su iç ve omuzlarını aşağı bırak.",
+      "Bugün yalnızca tek bir küçük görevi tamamla.",
+      "Ekranın başından 5 dakika uzaklaşıp pencereden dışarı bak.",
+      "Yapılacaklar listendeki en ağır işi bugünlük küçült."
+    ];
+    let stepIndex = 0;
 
-    const motivasyonlar = [
-      {
-        tema: "Kendine Şefkat",
-        mesaj: "Her şeyi aynı gün çözmek zorunda değilsin. Bugün sadece elinden gelen kadarını yapmak ve dinlenmeye izin vermek de ilerlemenin bir parçasıdır.",
-        adim: "5 dakika ekranlardan uzaklaş ve derin bir nefes alıp omuzlarını gevşet."
-      },
-      {
-        tema: "Küçük Başlangıçlar",
-        mesaj: "Gözünde büyüyen işler çoğu zaman tek seferde bitirilmesi gerekmediği için ağırdır. Bugün sadece ilk 10 dakikalık adımı atman yeterli.",
-        adim: "Ertelediğin tek bir işi seç ve sadece ilk küçük parçasını tamamla."
-      },
-      {
-        tema: "Duygularına Alan Açmak",
-        mesaj: "Bugün kendini enerjik hissetmiyorsan bu zayıflık değil, insani bir durumdur. Duygularını bastırmak yerine onlara nazikçe yer aç.",
-        adim: "Aşağıdaki günlük alanına şu an hissettiğin tek bir duyguyu dürüstçe yaz."
-      },
-      {
-        tema: "Kendi Hızın",
-        mesaj: "Başkalarının temposu senin ölçün değil. Kendi yolunda, kendi ritminle attığın her adım seni olman gereken yere yaklaştırıyor.",
-        adim: "Bugün kendini başkalarıyla kıyasladığın bir düşünceyi fark et ve nazikçe bırak."
-      },
-      {
-        tema: "Bugünün Değeri",
-        mesaj: "Dünün keşkeleri ya da yarının belirsizlikleri yerine şu an elinde olan tek zaman dilimine odaklan: bugün hâlâ yeni bir sayfa açabilirsin.",
-        adim: "Bugün seni gülümseten veya iyi hissettiren küçücük bir anı not et."
-      },
-      {
-        tema: "İçsel Dayanıklılık",
-        mesaj: "Daha önce geçmez sandığın pek çok zorlu günün içinden geçip bugüne geldin. İçindeki o sessiz güç hâlâ seninle.",
-        adim: "Kendine bugün teşekkür etmek istediğin bir özelliğini hatırlat."
-      },
-      {
-        tema: "Sınır Koyabilmek",
-        mesaj: "Herkese yetişmeye çalışırken kendini en sona bırakma. Bugün kendi enerjini korumak için hayır diyebilmek en sağlıklı tercih olabilir.",
-        adim: "Bugün sadece kendin için ayıracağın 20 dakikalık bir zaman dilimi belirle."
-      }
+    function renderStep() {
+      document.getElementById("dailyStepText").textContent = smallSteps[stepIndex];
+    }
+
+    function nextStep() {
+      stepIndex = (stepIndex + 1) % smallSteps.length;
+      renderStep();
+    }
+
+    const quotes = [
+      "Yavaş ilerlemek, hiç ilerlememekten her zaman daha kıymetlidir.",
+      "Kendine karşı nazik olmak bir lüks değil, dayanıklılığın temelidir.",
+      "Her günün ritmi aynı olmak zorunda değil."
     ];
 
-    let aktifIndex = bugun.getDate() % motivasyonlar.length;
+    const FAVORITES_KEY = "nihal_favorites_v1";
 
-    function motivasyonuGoster(index) {
-      const secilen = motivasyonlar[index];
-      document.getElementById('motivationTheme').textContent = secilen.tema;
-      document.getElementById('motivationText').textContent = secilen.mesaj;
-      document.getElementById('motivationStep').textContent = secilen.adim;
+    function getFavorites() {
+      try {
+        return JSON.parse(localStorage.getItem(FAVORITES_KEY)) || [];
+      } catch (e) {
+        return [];
+      }
     }
 
-    function yeniMotivasyonGetir() {
-      let yeniIndex;
-      do {
-        yeniIndex = Math.floor(Math.random() * motivasyonlar.length);
-      } while (yeniIndex === aktifIndex && motivasyonlar.length > 1);
-      aktifIndex = yeniIndex;
-      motivasyonuGoster(aktifIndex);
+    function saveFavorites(list) {
+      localStorage.setItem(FAVORITES_KEY, JSON.stringify(list));
+      renderFavorites();
     }
 
-    motivasyonuGoster(aktifIndex);
+    function toggleFavorite(quote) {
+      const current = getFavorites();
+      const exists = current.includes(quote);
+      const updated = exists ? current.filter((item) => item !== quote) : [...current, quote];
+      saveFavorites(updated);
+      renderQuotes();
+    }
 
-    let seciliDuygu = "Sakin";
-    const moodButtons = document.querySelectorAll('.mood-btn');
-    moodButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        moodButtons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        seciliDuygu = btn.getAttribute('data-mood');
-      });
-    });
+    function renderQuotes() {
+      const container = document.getElementById("quoteList");
+      const favs = getFavorites();
+      container.innerHTML = "";
 
-    function gunlukleriYukle() {
-      const kayitlar = JSON.parse(localStorage.getItem('nihal_gunluk_kayitlari') || '[]');
-      const listeAlani = document.getElementById('savedEntries');
-      listeAlani.innerHTML = '';
+      quotes.forEach((q) => {
+        const row = document.createElement("div");
+        row.className = "quote-item";
 
-      kayitlar.forEach((kayit, idx) => {
-        const div = document.createElement('div');
-        div.className = 'entry-item';
-        div.innerHTML = `
-          <div class="entry-meta">
-            <span>${kayit.tarih} • Ruh Hali: ${kayit.duygu}</span>
-            <button class="delete-entry" onclick="gunlukSil(${idx})">Sil</button>
-          </div>
-          <div class="entry-content"></div>
-        `;
-        div.querySelector('.entry-content').textContent = kayit.metin;
-        listeAlani.appendChild(div);
+        const text = document.createElement("span");
+        text.textContent = q;
+
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = favs.includes(q) ? "" : "secondary";
+        btn.textContent = favs.includes(q) ? "Favoride" : "Favoriye Ekle";
+        btn.onclick = () => toggleFavorite(q);
+
+        row.appendChild(text);
+        row.appendChild(btn);
+        container.appendChild(row);
       });
     }
 
-    function gunlukKaydet() {
-      const input = document.getElementById('journalInput');
-      const metin = input.value.trim();
-      if (!metin) {
-        alert('Kaydetmeden önce birkaç cümle yazabilirsin.');
+    function renderFavorites() {
+      const listEl = document.getElementById("favoritesList");
+      const favs = getFavorites();
+      listEl.innerHTML = "";
+
+      if (favs.length === 0) {
+        const li = document.createElement("li");
+        li.textContent = "Henüz favori söz eklenmedi.";
+        listEl.appendChild(li);
         return;
       }
 
-      const kayitlar = JSON.parse(localStorage.getItem('nihal_gunluk_kayitlari') || '[]');
-      const simdi = new Date().toLocaleDateString('tr-TR', {
-        day: 'numeric',
-        month: 'long',
-        year: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit'
+      favs.forEach((item) => {
+        const li = document.createElement("li");
+        li.textContent = item;
+        listEl.appendChild(li);
       });
-
-      kayitlar.unshift({
-        tarih: simdi,
-        duygu: seciliDuygu,
-        metin: metin
-      });
-
-      localStorage.setItem('nihal_gunluk_kayitlari', JSON.stringify(kayitlar));
-      input.value = '';
-      gunlukleriYukle();
     }
 
-    function gunlukSil(index) {
-      const kayitlar = JSON.parse(localStorage.getItem('nihal_gunluk_kayitlari') || '[]');
-      kayitlar.splice(index, 1);
-      localStorage.setItem('nihal_gunluk_kayitlari', JSON.stringify(kayitlar));
-      gunlukleriYukle();
+    let breathTimer = null;
+
+    function startBreathing() {
+      if (breathTimer) {
+        clearInterval(breathTimer);
+        breathTimer = null;
+      }
+
+      const circle = document.getElementById("breathCircle");
+      const status = document.getElementById("breathStatus");
+      const btn = document.getElementById("breathBtn");
+      let elapsed = 0;
+      btn.disabled = true;
+
+      function tick() {
+        if (elapsed >= 30) {
+          clearInterval(breathTimer);
+          breathTimer = null;
+          circle.classList.remove("expand");
+          circle.textContent = "Tamam";
+          status.textContent = "30 saniyelik nefes turu tamamlandı.";
+          btn.disabled = false;
+          return;
+        }
+
+        const remaining = 30 - elapsed;
+        const phase = elapsed % 12;
+        if (phase < 4) {
+          circle.classList.add("expand");
+          circle.textContent = "Nefes Al";
+        } else if (phase < 8) {
+          circle.textContent = "Tut";
+        } else {
+          circle.classList.remove("expand");
+          circle.textContent = "Nefes Ver";
+        }
+
+        status.textContent = `Kalan süre: ${remaining} sn`;
+        elapsed += 1;
+      }
+
+      tick();
+      breathTimer = setInterval(tick, 1000);
     }
 
-    gunlukleriYukle();
+    const feelings = {
+      yorgun: "Yorgun hissetmek zayıflık değil; bedeninin ve zihninin dinlenme ihtiyacının işaretidir.",
+      sikismis: "Sıkışmış hissettiğinde tüm resmi değil, yalnızca önündeki tek adımı düşünmek yeterlidir.",
+      belirsiz: "Her şeyin netleşmesini beklemeden de bugün kendine iyi davranabilirsin."
+    };
+
+    function showFeeling(key) {
+      document.getElementById("compassionMessage").textContent = feelings[key];
+    }
+
+    renderStep();
+    renderQuotes();
+    renderFavorites();
   </script>
 </body>
 </html>
